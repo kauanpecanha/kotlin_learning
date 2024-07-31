@@ -32,13 +32,7 @@ fun main() {
     println(json)
 
     val gson = Gson()
-    val meuJogo = gson.fromJson(json, InfoJogo::class.java)
-
-    // instanciação de um novo objeto do tipo jogo
-    //    val meuJogo = Jogo(
-    //        titulo = "Batman: Arkham Asylum Game of The Year Edition",
-    //        capa = "https:\\\\/\\\\/shared.akamai.steamstatic.com\\\\/store_item_assets\\\\/steam\\\\/apps\\\\/35140\\\\/capsule_sm_120.jpg?t=1702934705"
-    //    )
-
+    val meuInfoJogo = gson.fromJson(json, InfoJogo::class.java)
+    val meuJogo = Jogo(meuInfoJogo.info.title, meuInfoJogo.info.thumb)
     println(meuJogo)
 }
