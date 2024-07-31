@@ -1,7 +1,5 @@
 package org.example
 
-import com.google.gson.annotations.SerializedName
-
 // DIFERENÇA ENTRE VAR E VAL
 /*
 * var: variáveis que permitem posterior mudança de valores
@@ -10,8 +8,8 @@ import com.google.gson.annotations.SerializedName
 * */
 
 class Jogo(
-        @SerializedName("title") val titulo:String,
-        @SerializedName("thumb") val capa:String
+        val titulo:String,
+        val capa:String
     ) {
     val descricao: String = ""
 
