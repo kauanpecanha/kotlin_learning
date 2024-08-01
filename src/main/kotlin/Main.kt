@@ -40,6 +40,12 @@ fun main() {
 
     val gson = Gson()
     val meuInfoJogo = gson.fromJson(json, InfoJogo::class.java)
-    val meuJogo = Jogo(meuInfoJogo.info.title, meuInfoJogo.info.thumb)
-    println(meuJogo)
+
+    try {
+        val meuJogo = Jogo(meuInfoJogo.info.title, meuInfoJogo.info.thumb)
+        println(meuJogo)
+
+    } catch (ex: NullPointerException) {
+        println("Jogo inexistente. Tente outro id.")
+    }
 }
