@@ -1,4 +1,4 @@
-package org.example
+package org.example.br.com.kauanpecanha.alugames.models
 
 // DIFERENÇA ENTRE VAR E VAL
 /*
