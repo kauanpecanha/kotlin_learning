@@ -1,4 +1,4 @@
-package org.example
+package org.example.br.com.kauanpecanha.alugames.models
 // classe criada para obtenção das chaves contidas dentro de "info"
 data class InfoJogo(val info: InfoApiShark) {
     override fun toString(): String {
