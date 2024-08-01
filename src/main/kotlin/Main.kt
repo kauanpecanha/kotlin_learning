@@ -5,18 +5,25 @@ import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse.BodyHandlers
+import java.util.Scanner
 
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
+
+    // criando um scanner para leitura de valores pelo teclado
+    val leitura = Scanner(System.`in`)
+    // mensagem no prompt do usuário
+    println("Entre com o código do jogo desejado: ")
+    // leitura do valor digitado pelo usuário
+    val busca = leitura.nextLine()
+
     // criação de um cliente para fazer requisições na api
     val client: HttpClient = HttpClient.newHttpClient()
 
     // criação de uma nova instância de request
     val request = HttpRequest.newBuilder()
-        // especificação do endpoint da api
-        .uri(URI.create("https://www.cheapshark.com/api/1.0/games?id=146"))
+        // endpoint com o id especificado pelo usuário
+        .uri(URI.create("https://www.cheapshark.com/api/1.0/games?id=$busca"))
         // ?
         .build()
 
