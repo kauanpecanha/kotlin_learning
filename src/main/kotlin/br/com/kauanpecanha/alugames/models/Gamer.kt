@@ -7,7 +7,20 @@ data class Gamer(var name: String, var email: String) {
     // construtor primário
     var bornDate: String? = null
     var user: String? = null
+        // o set é definido para todos que quiserem alterar o user
+        set(value) {
+            // o valor é capturado
+            field = value
+            // se o identificador for nulo ou vazio, será criado um novo para determinado usuário
+            if(userId.isNullOrBlank()) {
+                createUserId()
+            }
+        }
     var userId: String? = null
+        // get é permitido para todos
+        get
+        // set é privado, ou seja, restrito a mudanças pelo usuário
+        private set
 
     // construtor secundário
     constructor(name: String, email: String, bornDate: String, user: String)
