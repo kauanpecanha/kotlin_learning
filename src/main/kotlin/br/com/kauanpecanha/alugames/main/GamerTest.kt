@@ -14,7 +14,7 @@ fun main() {
     gamer1.let {
         it.bornDate = "25/05/2004"
         it.user = "picanha"
-        it.id = "1"
+        it.userId = "kauanpecanha1234"
     }
 
 }
