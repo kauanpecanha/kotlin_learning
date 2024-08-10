@@ -8,9 +8,14 @@ fun main() {
 
     // criando um scanner para leitura de valores pelo teclado
     val leitura = Scanner(System.`in`)
+
+    // criação da instância de um novo gamer
+    val gamer = Gamer.createGamer(leitura)
+    println("Cadastro concluído com sucesso!")
+    println(gamer)
+
     // mensagem no prompt do usuário
     println("Entre com o código do jogo desejado: ")
-    // leitura do valor digitado pelo usuário
     val busca: Int = leitura.nextLine().toInt()
 
     val buscaApi = ApiConsume()
@@ -39,7 +44,7 @@ fun main() {
             meuJogo?.descricao = meuJogo?.titulo
         }
 
-        println(meuJogo)
+        gamer.jogosBuscados.add(meuJogo)
     }
 
     resultado.onSuccess {
