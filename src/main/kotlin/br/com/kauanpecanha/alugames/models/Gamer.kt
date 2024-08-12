@@ -25,7 +25,7 @@ data class Gamer(var name: String, var email: String) {
         // set é privado, ou seja, restrito a mudanças pelo usuário
         private set
 
-    val searchedGames: MutableList<Jogo> = mutableListOf<Jogo>()
+    val searchedGames: MutableList<Jogo?> = mutableListOf<Jogo?>()
 
     // construtor secundário
     constructor(name: String, email: String, bornDate: String, user: String)
