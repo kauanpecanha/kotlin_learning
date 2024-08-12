@@ -1,5 +1,6 @@
 package br.com.kauanpecanha.alugames.models
 
+import org.example.br.com.kauanpecanha.alugames.models.Jogo
 import kotlin.random.Random
 
 data class Gamer(var name: String, var email: String) {
@@ -25,6 +26,8 @@ data class Gamer(var name: String, var email: String) {
     
     val searchedGames: MutableList<Jogo?> = MutableListOf<Jogo?>()
 
+    val searchedGames: MutableList<Jogo> = mutableListOf<Jogo>()
+
     // construtor secundário
     constructor(name: String, email: String, bornDate: String, user: String)
         : this(name, email) {
@@ -44,6 +47,7 @@ data class Gamer(var name: String, var email: String) {
         // utilização da função criada para validar o email
         this.email = validateEmail()
     }
+
     override fun toString(): String {
         return "Gamer(name='$name', email='$email', bornDate=$bornDate, user=$user, userId=$userId)"
     }
