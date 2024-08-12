@@ -23,6 +23,8 @@ data class Gamer(var name: String, var email: String) {
         get
         // set é privado, ou seja, restrito a mudanças pelo usuário
         private set
+    
+    val searchedGames: MutableList<Jogo?> = MutableListOf<Jogo?>()
 
     val searchedGames: MutableList<Jogo> = mutableListOf<Jogo>()
 
@@ -72,6 +74,40 @@ data class Gamer(var name: String, var email: String) {
         }
         // do contrário, ela retorna uma excpection
         throw IllegalArgumentException("Invalid email format")
+    }
+
+    // companion objects são uma forma de criar atributos e métodos estáticos,
+    // ou seja, que podem ser acessados diretamente na classe, sem precisar 
+    // criar uma instância dessa classe
+    companion object {
+        
+        // função de criação de instância de Gamer para armazenar todos os jogos
+        // buscados por ele
+        fun createGamer(leitura: Scanner): Gamer {
+            
+            // dados básicos de cadastro
+            println("Entre com seu nome: ")
+            val name = leitura.nextLine()
+            println("Entre com seu email: ")
+            val email = leitura.nextLine()
+            println("Deseja completar seu cadastro de usuário?")
+            val option = leitura.nextLine()
+
+            // se desejado completar o cadastro
+            if(opcao.equals("s", true)) {
+                println("Entre com sua data de nascimento(dd/mm/aaaa):")
+                val bornDate = leitura.nextLine()
+                println("Entre com seu nome de usuário: ")
+                val username = leitura.nextLine()
+
+                // retorno da instância com as informações completas
+                return Gamer(name, email, bornDate, username)
+            }
+
+            // do contrário
+            // retorno da instância apenas com as informações básicas
+            return Gamer(name, email)
+        }
     }
 
 }

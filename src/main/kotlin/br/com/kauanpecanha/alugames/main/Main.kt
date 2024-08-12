@@ -7,6 +7,12 @@ import java.util.*
 fun main() {
 
     val leitura = Scanner(System.`in`)
+    // criação da instância de um novo gamer
+    val gamer = Gamer.createGamer(leitura)
+    println("Cadastro concluído com sucesso!")
+    println(gamer)
+
+    // mensagem no prompt do usuário
     println("Entre com o código do jogo desejado: ")
     val busca: Int = leitura.nextLine().toInt()
 
@@ -43,5 +49,7 @@ fun main() {
 
       // enquanto a opção for positiva
     } while (option.equals("Y", true))
+        gamer.jogosBuscados.add(meuJogo)
+    }
 
 }
