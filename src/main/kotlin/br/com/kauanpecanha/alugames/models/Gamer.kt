@@ -37,15 +37,15 @@ data class Gamer(var name: String, var email: String) {
 
     // init é utilizado para efetuar alguma operação imediatamente após a criação do objeto, depois do contrutor.
     // Dessa forma, é possível tratar dados utilizando alguns métodos.
-    init {
-        // expressão para verificar se um nome está vazio ou nulo
-        if (name.isNullOrBlank()) {
-            // retorno de uma excpection
-            throw IllegalArgumentException("Name is required")
-        }
-        // utilização da função criada para validar o email
-        this.email = validateEmail()
-    }
+//    init {
+//        // expressão para verificar se um nome está vazio ou nulo
+//        if (name.isNullOrBlank()) {
+//            // retorno de uma excpection
+//            throw IllegalArgumentException("Name is required")
+//        }
+//        // utilização da função criada para validar o email
+//        this.email = validateEmail()
+//    }
 
     override fun toString(): String {
         return "Gamer(name='$name', email='$email', bornDate=$bornDate, user=$user, userId=$userId)"

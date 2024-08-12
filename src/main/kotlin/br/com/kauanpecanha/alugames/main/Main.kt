@@ -1,4 +1,4 @@
-package org.example.br.com.kauanpecanha.alugames.main
+package br.com.kauanpecanha.alugames.main
 
 import br.com.kauanpecanha.alugames.models.Gamer
 import br.com.kauanpecanha.alugames.services.ApiConsume
@@ -16,10 +16,10 @@ fun main() {
 
     println(gamer)
 
-    println("Entre com o código do jogo desejado: ")
-    val busca: Int = leitura.nextLine().toInt()
-
     do {
+
+        println("Entre com o código do jogo desejado: ")
+        val busca = leitura.next().toInt()
 
         val buscaApi = ApiConsume()
         val meuInfoJogo = buscaApi.findOne(busca)
@@ -51,6 +51,42 @@ fun main() {
         // enquanto a opção for positiva
     } while (option.equals("S", true))
 
-    println("Jogos buscados:")
+    println("\nJogos buscados:")
     println(gamer.searchedGames)
+
+    println("\nJogos ordenados por título:")
+    gamer.searchedGames.sortBy {
+        it?.titulo
+    }
+
+    gamer.searchedGames.forEach {
+        println("Título: ${it?.titulo}")
+    }
+
+    println("\nJogos que contém a palavra Batman")
+    val filteredGames = gamer.searchedGames.filter {
+        it?.titulo?.contains("batman", true) ?: false
+    }
+
+    println(filteredGames)
+
+//    println("\nGostaria de deletar algum jogo?")
+//    val option = leitura.next()
+//
+//    if (option.equals("S", true)) {
+//        gamer.searchedGames.forEach {
+//            println("${it?.titulo}")
+//        }
+//        println("Qual índice você gostaria de deletar?")
+//        val indexToDelete = leitura.next().toInt()
+//
+//        gamer.searchedGames.removeAt(indexToDelete)
+//    }
+//
+//    println("Lista atualizada sem o jogo deletado:")
+//    gamer.searchedGames.forEach {
+//        println("${it?.titulo}")
+//    }
+//    println("Jogos deletados")
+
 }
