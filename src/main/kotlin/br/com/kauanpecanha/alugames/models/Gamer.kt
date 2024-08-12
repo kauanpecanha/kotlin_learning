@@ -1,6 +1,7 @@
 package br.com.kauanpecanha.alugames.models
 
 import org.example.br.com.kauanpecanha.alugames.models.Jogo
+import java.util.*
 import kotlin.random.Random
 
 data class Gamer(var name: String, var email: String) {
@@ -23,8 +24,6 @@ data class Gamer(var name: String, var email: String) {
         get
         // set é privado, ou seja, restrito a mudanças pelo usuário
         private set
-    
-    val searchedGames: MutableList<Jogo?> = MutableListOf<Jogo?>()
 
     val searchedGames: MutableList<Jogo> = mutableListOf<Jogo>()
 
@@ -94,7 +93,7 @@ data class Gamer(var name: String, var email: String) {
             val option = leitura.nextLine()
 
             // se desejado completar o cadastro
-            if(opcao.equals("s", true)) {
+            if(option.equals("s", true)) {
                 println("Entre com sua data de nascimento(dd/mm/aaaa):")
                 val bornDate = leitura.nextLine()
                 println("Entre com seu nome de usuário: ")
