@@ -2,6 +2,7 @@ package br.com.kauanpecanha.alugames.main
 
 import br.com.kauanpecanha.alugames.models.Gamer
 import br.com.kauanpecanha.alugames.services.ApiConsume
+import br.com.kauanpecanha.alugames.utils.convertDateToAge
 import org.example.br.com.kauanpecanha.alugames.models.Jogo
 import java.util.*
 
@@ -11,6 +12,8 @@ fun main() {
     val leitura = Scanner(System.`in`)
     val gamer = Gamer.createGamer(leitura)
     println("Cadastro concluído com sucesso!")
+
+    println("Idade do gamer: " + gamer.bornDate?.convertDateToAge() + " anos.")
 
     var meuJogo: Jogo? = null
 
