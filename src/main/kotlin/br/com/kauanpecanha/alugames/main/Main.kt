@@ -58,35 +58,25 @@ fun main() {
     gamer.searchedGames.sortBy {
         it?.titulo
     }
-
     gamer.searchedGames.forEach {
         println("Título: ${it?.titulo}")
     }
-
     println("\nJogos que contém a palavra Batman")
     val filteredGames = gamer.searchedGames.filter {
         it?.titulo?.contains("batman", true) ?: false
     }
-
     println(filteredGames)
 
-//    println("\nGostaria de deletar algum jogo?")
-//    val option = leitura.next()
-//
-//    if (option.equals("S", true)) {
-//        gamer.searchedGames.forEach {
-//            println("${it?.titulo}")
-//        }
-//        println("Qual índice você gostaria de deletar?")
-//        val indexToDelete = leitura.next().toInt()
-//
-//        gamer.searchedGames.removeAt(indexToDelete)
-//    }
-//
-//    println("Lista atualizada sem o jogo deletado:")
-//    gamer.searchedGames.forEach {
-//        println("${it?.titulo}")
-//    }
-//    println("Jogos deletados")
+
+    println("\nGostaria de deletar algum jogo?")
+    val option = leitura.next()
+    if (option.equals("S", true)) {
+        println(gamer.searchedGames)
+        println("\nQual índice você gostaria de deletar?")
+        val indexToDelete = leitura.nextInt()
+        gamer.searchedGames.removeAt(indexToDelete)
+    }
+    println("\nLista atualizada sem o jogo deletado:")
+    println(gamer.searchedGames)
 
 }
