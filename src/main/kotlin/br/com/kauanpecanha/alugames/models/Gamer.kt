@@ -32,6 +32,7 @@ data class Gamer(var name: String, var email: String) {
         : this(name, email) {
             this.name = name
             this.user = user
+            this.bornDate = bornDate
             createUserId()
         }
 
