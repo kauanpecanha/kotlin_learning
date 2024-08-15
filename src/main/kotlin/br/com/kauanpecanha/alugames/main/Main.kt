@@ -25,7 +25,7 @@ fun main() {
         val busca = leitura.next().toInt()
 
         val buscaApi = ApiConsume()
-        val meuInfoJogo = buscaApi.findOne(busca)
+        val meuInfoJogo = buscaApi.findGame(busca)
         val resultado = runCatching {
             meuJogo = Jogo(meuInfoJogo.info.title, meuInfoJogo.info.thumb)
         }
