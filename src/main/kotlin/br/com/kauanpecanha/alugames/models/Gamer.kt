@@ -1,6 +1,6 @@
 package br.com.kauanpecanha.alugames.models
 
-import org.example.br.com.kauanpecanha.alugames.models.Jogo
+import Jogo
 import java.util.*
 import kotlin.random.Random
 
@@ -74,6 +74,11 @@ data class Gamer(var name: String, var email: String) {
         }
         // do contrário, ela retorna uma excpection
         throw IllegalArgumentException("Invalid email format")
+    }
+
+    // função para alugar um determinado jogo
+    fun alugarJogo(jogo: Jogo): Aluguel {
+        return Aluguel(this, jogo)
     }
 
     // companion objects são uma forma de criar atributos e métodos estáticos,
