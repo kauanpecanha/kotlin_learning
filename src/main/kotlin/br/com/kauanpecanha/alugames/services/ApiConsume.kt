@@ -1,9 +1,11 @@
 package br.com.kauanpecanha.alugames.services
 
-import br.com.kauanpecanha.alugames.models.InfoGamerJson
+import InfoGamerJson
+import Jogo
+import br.com.kauanpecanha.alugames.models.Gamer
+import br.com.kauanpecanha.alugames.models.InfoJogoJson
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import org.example.br.com.kauanpecanha.alugames.models.InfoJogo
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -29,17 +31,19 @@ class ApiConsume {
 
     }
 
-    fun findGame(id:Int):InfoJogo {
+    fun findGames():List<Jogo> {
 
-        val json = getResponseFromApi("https://www.cheapshark.com/api/1.0/games?id=$id")
+        val json = getResponseFromApi("https://raw.githubusercontent.com/jeniblodev/arquivosJson/main/jogos.json")
 
         val gson = Gson()
-        val meuInfoJogo = gson.fromJson(json, InfoJogo::class.java)
+        val meuJogoTipo = object : TypeToken<List<InfoJogoJson>>() {}.type
+        val listaJogo: List<InfoJogoJson> = gson.fromJson(json, meuJogoTipo)
+        val convertedGamesList = listaJogo.map { infoJogoJson -> infoJogoJson.createGame() }
 
-        return meuInfoJogo
+        return convertedGamesList
     }
 
-    fun findGamers():List<InfoGamerJson> {
+    fun findGamers():List<Gamer> {
 
         val json = this.getResponseFromApi("https://raw.githubusercontent.com/jeniblodev/arquivosJson/main/gamers.json")
 
@@ -51,6 +55,9 @@ class ApiConsume {
         val gamerType = object: TypeToken<List<InfoGamerJson>>() {}.type
         val listGamers: List<InfoGamerJson> = gson.fromJson(json, gamerType)
 
-        return listGamers
+        val convertedListGamer = listGamers.map { infoGamerJson -> infoGamerJson.createGamer() }
+
+        return convertedListGamer
     }
+
 }
