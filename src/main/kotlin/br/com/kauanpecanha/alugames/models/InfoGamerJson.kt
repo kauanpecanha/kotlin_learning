@@ -1,4 +1,4 @@
-package br.com.kauanpecanha.alugames.models
+import br.com.kauanpecanha.alugames.models.Gamer
 
 data class InfoGamerJson(
     val nome: String,
@@ -8,5 +8,9 @@ data class InfoGamerJson(
 ) {
     override fun toString(): String {
         return ("name: $nome | email: $email | bornDate: $dataNascimento | user: $usuario")
+    }
+
+    fun createGamer(): Gamer {
+        return Gamer(this.nome, this.email, this.dataNascimento, this.usuario)
     }
 }
