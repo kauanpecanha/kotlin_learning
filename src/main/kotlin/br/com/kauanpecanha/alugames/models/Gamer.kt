@@ -77,8 +77,8 @@ data class Gamer(var name: String, var email: String) {
     }
 
     // função para alugar um determinado jogo
-    fun alugarJogo(jogo: Jogo): Aluguel {
-        return Aluguel(this, jogo)
+    fun alugarJogo(jogo: Jogo, periodo: Periodo): Aluguel {
+        return Aluguel(this, jogo, periodo)
     }
 
     // companion objects são uma forma de criar atributos e métodos estáticos,
