@@ -1,6 +1,8 @@
 package br.com.kauanpecanha.alugames.main
 import br.com.kauanpecanha.alugames.models.Aluguel
+import br.com.kauanpecanha.alugames.models.Periodo
 import br.com.kauanpecanha.alugames.services.ApiConsume
+import java.time.LocalDate
 
 fun main() {
 
@@ -12,7 +14,7 @@ fun main() {
     println(selectedGamer)
     println(selectedGame)
 
-    val aluguel: Aluguel = Aluguel(selectedGamer, selectedGame)
+    val aluguel: Aluguel = Aluguel(selectedGamer, selectedGame, Periodo(LocalDate.now(), LocalDate.now().plusDays(7)))
 
     println(aluguel)
 
