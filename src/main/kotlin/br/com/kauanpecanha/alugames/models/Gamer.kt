@@ -27,7 +27,7 @@ data class Gamer(var name: String, var email: String) {
 
     val searchedGames: MutableList<Jogo?> = mutableListOf<Jogo?>()
     val rentedGames: MutableList<Aluguel> = mutableListOf<Aluguel>()
-    val plano: PlanoAvulso = PlanoAvulso("BRONZE")
+    var plano: Plano = PlanoAvulso("BRONZE")
 
     // construtor secundário
     constructor(name: String, email: String, bornDate: String, user: String)
@@ -86,6 +86,12 @@ data class Gamer(var name: String, var email: String) {
         rentedGames.add(rent)
         // retorno da nova instância para impressão de suas informações
         return rent
+    }
+
+    fun jogosDoMes(mes:Int): List<Jogo> {
+        return rentedGames
+            .filter { aluguel ->  aluguel.periodo.dataInicial.monthValue == mes }
+            .map { aluguel ->  aluguel.jogo }
     }
 
     // companion objects são uma forma de criar atributos e métodos estáticos,
