@@ -27,6 +27,7 @@ data class Gamer(var name: String, var email: String) {
 
     val searchedGames: MutableList<Jogo?> = mutableListOf<Jogo?>()
     val rentedGames: MutableList<Aluguel> = mutableListOf<Aluguel>()
+    val plano: PlanoAvulso = PlanoAvulso("BRONZE")
 
     // construtor secundário
     constructor(name: String, email: String, bornDate: String, user: String)

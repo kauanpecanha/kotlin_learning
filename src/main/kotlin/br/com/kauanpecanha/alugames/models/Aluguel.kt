@@ -8,7 +8,7 @@ data class Aluguel(
         val periodo: Periodo
     ) {
 
-    val valor: Double = jogo.preco * periodo.emDias
+    val valor: Double = gamer.plano.calculateRent(this)
 
     override fun toString(): String {
         return "\n\nINFORMAÇÕES DO ALUGUEL \n\n " +
