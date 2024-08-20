@@ -6,4 +6,21 @@ package br.com.kauanpecanha.alugames.models
 // de PlanoAssinatura
 class PlanoAssinatura(tipo: String, val mensalidade: Double, val jogosIncluidos: Int): Plano(tipo) {
 
+    // função de cálculo adaptada para a realidade do plano de assinatura
+    override fun calculateRent(aluguel: Aluguel): Double {
+
+        // calcula a quantidade de jogos alugados no mês para se obter seus preços de acordo
+        // com a quantidade prevista pelo plano
+        val totalJogosMes = aluguel.gamer.jogosDoMes(aluguel.periodo.dataInicial.monthValue).size + 1
+
+        // return if é um condicional no qual o if é responsável por determinar aquilo que
+        // será retornado pelo mesmo
+        return if(totalJogosMes <= jogosIncluidos) {
+            // 0 se estiver dentro da quantidade de jogos inclusos
+            0.0
+        } else {
+            // valor cheio caso tenha ultrapassado o mesmo
+            super.calculateRent(aluguel)
+        }
+    }
 }
