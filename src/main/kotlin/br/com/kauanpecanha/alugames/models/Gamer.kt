@@ -79,7 +79,7 @@ data class Gamer(var name: String, var email: String): Recomendavel {
                 "BornDate: $bornDate\n" +
                 "User: $user\n" +
                 "id: $userId\n" +
-                "Reputação: $media"
+                "Reputação: ${media.toString().format("%.2f")}\n"
     }
 
     fun createUserId() {

@@ -26,6 +26,6 @@ data class Jogo(@Expose val titulo:String,
                 "Capa: $capa \n" +
                 "Descricao: $descricao \n" +
                 "Preço: $preco\n" +
-                "Reputação: $media"
+                "Reputação: ${media.toString().format("%.2f")}\n"
     }
 }
