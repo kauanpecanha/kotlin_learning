@@ -11,7 +11,7 @@ fun main() {
     val selectedGamer = apiConsumer.findGamers()[3]
     val selectedGamer2 = apiConsumer.findGamers()[5]
 
-    selectedGamer2.plano = PlanoAssinatura("PRATA", 9.90, 3)
+    // selectedGamer2.plano = PlanoAssinatura("PRATA", 9.90, 3)
 
     val selectedGame1 = apiConsumer.findGames()[10]
     val selectedGame2 = apiConsumer.findGames()[13]
@@ -24,19 +24,18 @@ fun main() {
     selectedGamer.alugarJogo(selectedGame1, periodo1)
     selectedGamer.alugarJogo(selectedGame2, periodo2)
     selectedGamer.alugarJogo(selectedGame3, periodo3)
+    selectedGamer.alugarJogo(selectedGame3, periodo1)
+
 
     selectedGamer2.alugarJogo(selectedGame1, periodo1)
     selectedGamer2.alugarJogo(selectedGame2, periodo2)
     selectedGamer2.alugarJogo(selectedGame3, periodo3)
-    selectedGamer2.alugarJogo(selectedGame3, periodo1)
 
     selectedGamer.recomendar(7)
     selectedGamer.recomendar(10)
     selectedGamer.recomendar(8)
 
 
-    println(selectedGamer2.rentedGames)
-
-    println(selectedGamer)
+    println(selectedGamer.rentedGames)
 
 }
