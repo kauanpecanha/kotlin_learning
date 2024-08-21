@@ -28,6 +28,12 @@ data class Gamer(var name: String, var email: String): Recomendavel {
     val searchedGames: MutableList<Jogo?> = mutableListOf<Jogo?>()
     val rentedGames: MutableList<Aluguel> = mutableListOf<Aluguel>()
     var plano: Plano = PlanoAvulso("BRONZE")
+    val recommendedGames: MutableList<Jogo> = mutableListOf<Jogo>()
+
+    fun recommendGame(jogo: Jogo, nota: Int) {
+        jogo.recomendar(nota)
+        recommendedGames.add(jogo)
+    }
 
     // lista de notas atribuídas ao gamer para cálculo de recomendação
     private val listaNotas = mutableListOf<Int>()
@@ -67,7 +73,7 @@ data class Gamer(var name: String, var email: String): Recomendavel {
     //    }
 
     override fun toString(): String {
-        return "Gamer: \n" +
+        return "\nGamer: \n" +
                 "Name: $name\n" +
                 "Email: $email\n" +
                 "BornDate: $bornDate\n" +
@@ -77,23 +83,15 @@ data class Gamer(var name: String, var email: String): Recomendavel {
     }
 
     fun createUserId() {
-
-        // criação de um número aleatório com limite definido em 10000
         val numero = Random.nextInt(10000)
-
-        // tag composta por 4 dígitos, atribuida a variavel numero
         val tag = String.format("%04d", numero)
-
         userId = "$user#$tag"
     }
 
     // função de validação do email
     fun validateEmail(): String {
-        // utilização de regex para verificação do email
         val regex = Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")
-        // se o regex conferir o email
         if(regex.matches(email)) {
-            // o email é retornado com sucesso
             return email
         }
         // do contrário, ela retorna uma excpection
@@ -102,11 +100,8 @@ data class Gamer(var name: String, var email: String): Recomendavel {
 
     // função para alugar um determinado jogo
     fun alugarJogo(jogo: Jogo, periodo: Periodo): Aluguel {
-        // nova instância do objeto aluguel
         val rent = Aluguel(this, jogo, periodo)
-        // adição da nova instância à lista
         rentedGames.add(rent)
-        // retorno da nova instância para impressão de suas informações
         return rent
     }
 
