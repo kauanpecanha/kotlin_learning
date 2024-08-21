@@ -1,11 +1,11 @@
 package br.com.kauanpecanha.alugames.models
 
-import Jogo
+import br.com.alura.alugames.models.Jogo
 
 data class Aluguel(
-        val gamer: Gamer,
-        val jogo: Jogo,
-        val periodo: Periodo
+    val gamer: Gamer,
+    val jogo: Jogo,
+    val periodo: Periodo
     ) {
 
     val valor: Double = gamer.plano.calculateRent(this)

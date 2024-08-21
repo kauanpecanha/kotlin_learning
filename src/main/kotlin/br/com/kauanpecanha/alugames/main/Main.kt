@@ -1,6 +1,6 @@
 package br.com.kauanpecanha.alugames.main
 
-import Jogo
+//import Jogo
 import br.com.kauanpecanha.alugames.models.Gamer
 import br.com.kauanpecanha.alugames.services.ApiConsume
 import br.com.kauanpecanha.alugames.utils.convertDateToAge

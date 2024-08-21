@@ -1,6 +1,6 @@
 package br.com.kauanpecanha.alugames.models
 
-import Jogo
+import br.com.alura.alugames.models.Jogo
 
 data class InfoJogoJson(
     val titulo: String,

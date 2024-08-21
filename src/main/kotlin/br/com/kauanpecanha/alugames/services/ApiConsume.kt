@@ -1,7 +1,7 @@
 package br.com.kauanpecanha.alugames.services
 
 import InfoGamerJson
-import Jogo
+import br.com.alura.alugames.models.Jogo
 import br.com.kauanpecanha.alugames.models.Gamer
 import br.com.kauanpecanha.alugames.models.InfoJogoJson
 import com.google.gson.Gson
