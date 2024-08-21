@@ -35,7 +35,7 @@ fun main() {
     println(serialization)
 
     // criação de um arquivo com os dados serializados
-    val file = File("recommendedGames.json")
+    val file = File("recommendedGames-${gamerCamila.name}.json")
     file.writeText(serialization)
     println(file.absolutePath)
 
