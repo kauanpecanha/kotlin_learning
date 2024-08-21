@@ -30,7 +30,13 @@ fun main() {
     selectedGamer2.alugarJogo(selectedGame3, periodo3)
     selectedGamer2.alugarJogo(selectedGame3, periodo1)
 
+    selectedGamer.recomendar(7)
+    selectedGamer.recomendar(10)
+    selectedGamer.recomendar(8)
+
 
     println(selectedGamer2.rentedGames)
+
+    println(selectedGamer)
 
 }

@@ -4,7 +4,7 @@ import Jogo
 import java.util.*
 import kotlin.random.Random
 
-data class Gamer(var name: String, var email: String) {
+data class Gamer(var name: String, var email: String): Recomendavel {
 
     // construtor primário
     var bornDate: String? = null
@@ -29,6 +29,18 @@ data class Gamer(var name: String, var email: String) {
     val rentedGames: MutableList<Aluguel> = mutableListOf<Aluguel>()
     var plano: Plano = PlanoAvulso("BRONZE")
 
+    // lista de notas atribuídas ao gamer para cálculo de recomendação
+    private val listaNotas = mutableListOf<Int>()
+
+    // função de adição das notas à lista de notas
+    override fun recomendar(nota: Int) {
+        listaNotas.add(nota)
+    }
+
+    // override da variável media que se torna a média de todas as notas
+    override val media: Double
+        get() = listaNotas.average()
+
     // construtor secundário
     constructor(name: String, email: String, bornDate: String, user: String)
         : this(name, email) {
@@ -40,18 +52,24 @@ data class Gamer(var name: String, var email: String) {
 
     // init é utilizado para efetuar alguma operação imediatamente após a criação do objeto, depois do contrutor.
     // Dessa forma, é possível tratar dados utilizando alguns métodos.
-//    init {
-//        // expressão para verificar se um nome está vazio ou nulo
-//        if (name.isNullOrBlank()) {
-//            // retorno de uma excpection
-//            throw IllegalArgumentException("Name is required")
-//        }
-//        // utilização da função criada para validar o email
-//        this.email = validateEmail()
-//    }
+    //    init {
+    //        // expressão para verificar se um nome está vazio ou nulo
+    //        if (name.isNullOrBlank()) {
+    //            // retorno de uma excpection
+    //            throw IllegalArgumentException("Name is required")
+    //        }
+    //        // utilização da função criada para validar o email
+    //        this.email = validateEmail()
+    //    }
 
     override fun toString(): String {
-        return "Gamer(name='$name', email='$email', bornDate=$bornDate, user=$user, userId=$userId)"
+        return "Gamer: \n" +
+                "Name: $name\n" +
+                "Email: $email\n" +
+                "BornDate: $bornDate\n" +
+                "User: $user\n" +
+                "id: $userId\n" +
+                "Reputação: $media"
     }
 
     fun createUserId() {
