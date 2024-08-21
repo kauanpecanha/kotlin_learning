@@ -27,7 +27,7 @@ fun main() {
 
     selectedGamer.recomendar(7)
     selectedGamer.recomendar(10)
-    selectedGamer.recomendar(8)
+    selectedGamer.recomendar(-19)
 
 
     println(selectedGamer.rentedGames)

@@ -34,7 +34,11 @@ data class Gamer(var name: String, var email: String): Recomendavel {
 
     // função de adição das notas à lista de notas
     override fun recomendar(nota: Int) {
-        listaNotas.add(nota)
+        if (nota >=0 && nota <= 10) {
+            listaNotas.add(nota)
+        } else {
+            println("A nota ${nota} não foi adicionada, por não estar dentro das condições. Tente novamente com um valor entre 0 e 10.")
+        }
     }
 
     // override da variável media que se torna a média de todas as notas
