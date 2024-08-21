@@ -1,9 +1,10 @@
 package br.com.alura.alugames.models
 
 import br.com.kauanpecanha.alugames.models.Recomendavel
+import com.google.gson.annotations.Expose
 
-data class Jogo(val titulo:String,
-                val capa:String): Recomendavel {
+data class Jogo(@Expose val titulo:String,
+                @Expose val capa:String): Recomendavel {
     var descricao: String? = null
     var preco = 0.0
     private val listaNotas = mutableListOf<Int>()
@@ -24,6 +25,7 @@ data class Jogo(val titulo:String,
                 "Título: $titulo \n" +
                 "Capa: $capa \n" +
                 "Descricao: $descricao \n" +
-                "Preço: $preco"
+                "Preço: $preco\n" +
+                "Reputação: $media"
     }
 }
