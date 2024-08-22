@@ -1,0 +1,10 @@
+package br.com.alura.alugames.principal
+
+import br.com.alura.alugames.banco.Banco
+import br.com.alura.alugames.modelo.Jogo
+
+fun main() {
+
+    val listaJogos: List<Jogo> = Banco.getJogos()
+    println(listaJogos)
+}
