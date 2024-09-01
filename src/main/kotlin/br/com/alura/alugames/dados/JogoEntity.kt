@@ -1,4 +1,4 @@
-package br.com.alura.alugames.banco
+package br.com.alura.alugames.dados
 
 import javax.persistence.*
 
