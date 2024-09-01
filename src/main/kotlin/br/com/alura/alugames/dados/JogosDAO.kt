@@ -1,7 +1,6 @@
 package br.com.alura.alugames.banco
 
 import br.com.alura.alugames.modelo.Jogo
-import br.com.alura.alugames.modelo.JogoEntity
 import javax.persistence.EntityManager
 
 // classe que contém todas as operações de bancos de dados com os jogos inclusos. algo semelhante aos controllers do js
