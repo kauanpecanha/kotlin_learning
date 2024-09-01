@@ -15,8 +15,7 @@ object Banco {
 //            null
 //        }
 //    }
-
-    fun getEntityManagerFactory(): EntityManager {
+    fun getEntityManager(): EntityManager {
         val factory: EntityManagerFactory = Persistence.createEntityManagerFactory("alugames")
         return factory.createEntityManager()
     }
