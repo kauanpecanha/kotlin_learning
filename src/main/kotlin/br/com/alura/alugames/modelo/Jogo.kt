@@ -25,11 +25,12 @@ data class Jogo(@Expose val titulo:String,
         this.id = id
     }
     override fun toString(): String {
-        return "Meu Jogo: \n" +
+        return "[" +
                 "Título: $titulo \n" +
                 "Capa: $capa \n" +
                 "Descricao: $descricao \n" +
                 "Preço: $preco \n" +
-                "Reputação: $media\n"
+                "Reputação: $media\n" +
+                "]\n"
     }
 }
