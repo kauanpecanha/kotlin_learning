@@ -1,9 +1,8 @@
 package br.com.alura.alugames.principal
 
-import br.com.alura.alugames.banco.Banco
+import br.com.alura.alugames.dados.Banco
 import br.com.alura.alugames.modelo.Jogo
-import br.com.alura.alugames.banco.JogosDAO
-import br.com.alura.alugames.modelo.JogoEntity
+import br.com.alura.alugames.dados.JogosDAO
 
 // script de interação com os bancos de dados
 fun main() {
@@ -14,11 +13,15 @@ fun main() {
     val manager = Banco.getEntityManager()
 
     val jogosDAO = JogosDAO(manager)
-    jogosDAO.adicionarJogo(jogo)
-    jogosDAO.adicionarJogo(jogo2)
+    //    jogosDAO.adicionar(jogo)
+    //    jogosDAO.adicionar(jogo2)
 
+    val jogoRecuperado = jogosDAO.recuperarPeloId(11)
+    println(jogoRecuperado)
 
-    val listaJogos: List<Jogo> = jogosDAO.getJogos()
+    jogosDAO.apagar(12)
+
+    val listaJogos: List<Jogo> = jogosDAO.getLista()
 
     println(listaJogos)
 
