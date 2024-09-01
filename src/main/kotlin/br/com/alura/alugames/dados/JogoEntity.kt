@@ -10,7 +10,7 @@ open class JogoEntity(
     val preco: Double = 0.0,
     val descricao: String? = null,
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val Id: Int = 0
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Int = 0
 ) {
 
 }

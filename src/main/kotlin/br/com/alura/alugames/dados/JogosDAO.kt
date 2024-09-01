@@ -10,12 +10,12 @@ class JogosDAO(manager: EntityManager): DAO<Jogo, JogoEntity>(manager, JogoEntit
 
     // sobrescrita da função de transformação de um model para uma entidade
     override fun toEntity(objeto: Jogo): JogoEntity {
-        return JogoEntity(objeto.titulo, objeto.capa, objeto.preco, objeto.descricao, objeto.id )
+        return JogoEntity(objeto.titulo, objeto.capa, objeto.preco, objeto.descricao, objeto.id)
     }
 
     // sobrescrita da função de transformação de uma entidade para um model
     override fun toModel(entity: JogoEntity): Jogo {
-        return Jogo(entity.titulo, entity.capa, entity.preco, entity.descricao, entity.Id)
+        return Jogo(entity.titulo, entity.capa, entity.preco, entity.descricao, entity.id)
     }
 
     // os overrides abaixo são para adequar as funções herdadas ao contexto do objeto jogo

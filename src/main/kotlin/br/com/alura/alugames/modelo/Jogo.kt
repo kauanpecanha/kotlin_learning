@@ -30,7 +30,7 @@ data class Jogo(@Expose val titulo:String,
                 "Capa: $capa \n" +
                 "Descricao: $descricao \n" +
                 "Preço: $preco \n" +
-                "Reputação: $media\n" +
+                "id: $id\n" +
                 "]\n"
     }
 }

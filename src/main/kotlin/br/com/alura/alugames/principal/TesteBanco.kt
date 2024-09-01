@@ -1,6 +1,5 @@
 package br.com.alura.alugames.principal
 
-import br.com.alura.alugames.dados.Banco
 import br.com.alura.alugames.modelo.Jogo
 import br.com.alura.alugames.dados.JogosDAO
 
@@ -19,7 +18,7 @@ fun main() {
     val jogoRecuperado = jogosDAO.recuperarPeloId(11)
     println(jogoRecuperado)
 
-    jogosDAO.apagar(12)
+    jogosDAO.apagar(9)
 
     val listaJogos: List<Jogo> = jogosDAO.getLista()
 
