@@ -1,20 +1,22 @@
-package br.com.alura.alugames.banco
+package br.com.alura.alugames.dados
 
 import br.com.alura.alugames.modelo.Jogo
 import javax.persistence.EntityManager
 
 // classe que contém todas as operações de bancos de dados com os jogos inclusos. algo semelhante aos controllers do js
-class JogosDAO(val manager: EntityManager) {
 
-    fun getJogos(): List<Jogo> {
-        val query = manager.createQuery("FROM JogoEntity", JogoEntity::class.java)
-        return query.resultList.map { entity -> Jogo(entity.titulo, entity.capa, entity.preco, entity.descricao, entity.Id) }
+// : DAO<Jogo, JogoEntity> é uma forma de herança da classe DAO para operações de read e create
+class JogosDAO(manager: EntityManager): DAO<Jogo, JogoEntity>(manager, JogoEntity::class.java) {
+
+    // sobrescrita da função de transformação de um model para uma entidade
+    override fun toEntity(objeto: Jogo): JogoEntity {
+        return JogoEntity(objeto.titulo, objeto.capa, objeto.preco, objeto.descricao, objeto.id )
     }
 
-    fun adicionarJogo(jogo: Jogo) {
-        val entity = JogoEntity(jogo.titulo, jogo.capa, jogo.preco, jogo.descricao)
-        manager.transaction.begin()
-        manager.persist(entity)
-        manager.transaction.commit()
+    // sobrescrita da função de transformação de uma entidade para um model
+    override fun toModel(entity: JogoEntity): Jogo {
+        return Jogo(entity.titulo, entity.capa, entity.preco, entity.descricao, entity.Id)
     }
+
+    // os overrides abaixo são para adequar as funções herdadas ao contexto do objeto jogo
 }
