@@ -1,5 +1,3 @@
-package br.com.alura.alugames.banco
-
 import javax.persistence.EntityManager
 import javax.persistence.EntityManagerFactory
 import javax.persistence.Persistence
