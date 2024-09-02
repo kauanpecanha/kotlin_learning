@@ -8,26 +8,10 @@ import javax.persistence.EntityManager
 class GamersDAO(manager: EntityManager): DAO<Gamer, GamerEntity>(manager, GamerEntity::class.java) {
 
     override fun toEntity(objeto: Gamer): GamerEntity {
-        return GamerEntity(
-            objeto.id,
-            objeto.nome,
-            objeto.email,
-            objeto.dataNascimento,
-            objeto.usuario,
-            objeto.plano.toEntity()
-        )
+        return objeto.toEntity()
     }
 
     override fun toModel(entity: GamerEntity): Gamer {
-        // note que nenhum construtor de gamer oferece a possibilidade de alterar o atributo do plano. por isso foi
-        // utilizado a scope function apply
-        return Gamer(
-            entity.nome,
-            entity.email,
-            entity.dataNascimento,
-            entity.usuario, entity.id)
-            .apply {
-                plano = entity.plano.toModel()
-            }
+        return entity.toModel()
     }
 }

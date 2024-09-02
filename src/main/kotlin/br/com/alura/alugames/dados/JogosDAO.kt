@@ -1,6 +1,8 @@
 package br.com.alura.alugames.dados
 
 import br.com.alura.alugames.modelo.Jogo
+import br.com.alura.alugames.utilitario.toEntity
+import br.com.alura.alugames.utilitario.toModel
 import javax.persistence.EntityManager
 
 // classe que contém todas as operações de bancos de dados com os jogos inclusos. algo semelhante aos controllers do js
@@ -10,12 +12,12 @@ class JogosDAO(manager: EntityManager): DAO<Jogo, JogoEntity>(manager, JogoEntit
 
     // sobrescrita da função de transformação de um model para uma entidade
     override fun toEntity(objeto: Jogo): JogoEntity {
-        return JogoEntity(objeto.titulo, objeto.capa, objeto.preco, objeto.descricao, objeto.id)
+        return objeto.toEntity()
     }
 
     // sobrescrita da função de transformação de uma entidade para um model
     override fun toModel(entity: JogoEntity): Jogo {
-        return Jogo(entity.titulo, entity.capa, entity.preco, entity.descricao, entity.id)
+        return entity.toModel()
     }
 
     // os overrides abaixo são para adequar as funções herdadas ao contexto do objeto jogo
