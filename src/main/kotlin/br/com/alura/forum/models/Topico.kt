@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 import java.util.ArrayList
 
 data class Topico (
-    var id: Long? = null,
+    var id: Long,
     val titulo: String,
     val mensagem: String,
     val dataCriacao: LocalDateTime = LocalDateTime.now(),

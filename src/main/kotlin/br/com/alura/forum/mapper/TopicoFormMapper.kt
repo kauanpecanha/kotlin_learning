@@ -11,9 +11,11 @@ class TopicoFormMapper(
     private val cursoService: CursoService,
     private val usuarioService: UsuarioService,
 
-    ): Mapper<TopicoForm, Topico> {
-    fun map(t: TopicoForm): Topico {
+    ): MapperWithList<TopicoForm, Topico> {
+    override fun map(t: TopicoForm, l: Long): Topico {
+
         return Topico(
+            id = l,
             titulo = t.titulo,
             mensagem = t.mensagem,
             curso = cursoService.buscarPorId(t.idCurso),
