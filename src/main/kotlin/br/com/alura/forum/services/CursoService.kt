@@ -19,8 +19,8 @@ class CursoService(
     }
 
     fun buscarPorId(id: Long): Curso {
-        return cursos.stream().filter({
-            each -> each.id == id
+        return cursos.stream().filter({ each ->
+            each.id == id
         }).findFirst().get()
     }
 }

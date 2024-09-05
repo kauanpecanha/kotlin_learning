@@ -35,6 +35,7 @@ class TopicoController(
         return service.buscarPorId(id)
     }
 
+    // rota de cadastro de objetos do tipo topico em uma lista de tópicos
     @PostMapping
     fun cadastrar(@RequestBody @Valid dto: TopicoForm) {
         service.cadastrar(dto)

@@ -2,6 +2,7 @@ package br.com.alura.forum.models
 
 import java.time.LocalDateTime
 
+// entidade para representar a entidade respostas de usuários dentro da plataforma
 data class Resposta(
     val id: Long?,
     val mensagem: String,

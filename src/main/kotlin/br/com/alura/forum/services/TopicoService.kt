@@ -18,15 +18,15 @@ class TopicoService(
 
     // função de busca por todos os objetos cadastrados
     fun listar(): List<TopicoView> {
-        return topicos.stream().map {
-            each -> topicoViewMapper.map(each)
+        return topicos.stream().map { each ->
+            topicoViewMapper.map(each)
         }.collect(Collectors.toList())
     }
 
     // função de busca de um objeto específico através de filtragem
     fun buscarPorId(id: Long): TopicoView {
-        val topico = topicos.stream().filter {
-            each -> each.id == id
+        val topico = topicos.stream().filter { each ->
+            each.id == id
         }.findFirst().get()
 
         return topicoViewMapper.map(topico)
@@ -34,14 +34,14 @@ class TopicoService(
     }
 
     fun cadastrar(form: TopicoForm) {
-        val topico = topicoFormMapper.map(
-            form,
-            (topicos.size + 1).toLong()
-        )
 
+        // adição do novo objeto a uma lista de tópicos
         topicos = topicos.plus(
+            // passagem do objeto do tipo TopicoForm para Topico
             topicoFormMapper.map(
+                // objeto no formato TopicoForm
                 form,
+                // índice a ser atribuído
                 (topicos.size + 1).toLong()
             )
         )

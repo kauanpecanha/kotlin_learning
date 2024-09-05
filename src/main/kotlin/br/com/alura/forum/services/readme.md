@@ -1,0 +1,2 @@
+Os services são tipos de arquivos voltados para estabelecer as funções possíveis de serem executadas pelos dtos, de
+forma que sejam chamados pelos controllers, e manipulem as classes estabelecidas dentro de DTOs.

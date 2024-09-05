@@ -10,10 +10,13 @@ import org.springframework.stereotype.Component
 class TopicoFormMapper(
     private val cursoService: CursoService,
     private val usuarioService: UsuarioService,
+) : MapperWithList<TopicoForm, Topico> {
 
-    ): MapperWithList<TopicoForm, Topico> {
+    // override da função map herdada do MapperWithList genérico, esatabelecendo que será feita uma passagem de
+    // TopicoForm(entrada) para Topico para manipulação interna de dados pelo software
     override fun map(t: TopicoForm, l: Long): Topico {
 
+        // retorno do objeto no formato de Tópico, com id atribuído
         return Topico(
             id = l,
             titulo = t.titulo,

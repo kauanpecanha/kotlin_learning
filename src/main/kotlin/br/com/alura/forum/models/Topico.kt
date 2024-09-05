@@ -3,6 +3,7 @@ package br.com.alura.forum.models
 import java.time.LocalDateTime
 import java.util.ArrayList
 
+// entidade principal deste curso para representar os tópicos de discussão do forum
 data class Topico (
     var id: Long,
     val titulo: String,
