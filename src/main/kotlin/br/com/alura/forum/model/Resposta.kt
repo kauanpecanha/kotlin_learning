@@ -10,9 +10,9 @@ data class Resposta(
         val id: Long? = null,
         val mensagem: String,
         val dataCriacao: LocalDateTime = LocalDateTime.now(),
-        @ManyToOne
+        @ManyToOne // várias respostas estão relacionadas a um usuário
         val autor: Usuario,
-        @ManyToOne
+        @ManyToOne // várias respostas estão relacionadas a um tópico
         val topico: Topico,
         val solucao: Boolean
 )

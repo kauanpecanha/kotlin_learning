@@ -10,12 +10,12 @@ data class Topico(
         var titulo: String,
         var mensagem: String,
         val dataCriacao: LocalDateTime = LocalDateTime.now(),
-        @ManyToOne
+        @ManyToOne // vários tópicos estão relacionados a um curso
         val curso: Curso,
-        @ManyToOne
+        @ManyToOne // vários tópicos estão atrelado a um usuário
         val autor: Usuario,
-        @Enumerated(value = EnumType.STRING)
+        @Enumerated(value = EnumType.STRING) // será salvo o nome do estado no banco de dados
         val status: StatusTopico = StatusTopico.NAO_RESPONDIDO,
-        @OneToMany(mappedBy = "topico")
+        @OneToMany(mappedBy = "topico") // um tópico tem várias respostas
         val respostas: List<Resposta> = ArrayList()
 )
