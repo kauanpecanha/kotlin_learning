@@ -2,10 +2,11 @@ spring:
   datasource:
     driverClassName: org.h2.Driver
     url: jdbc:h2:mem:forum
-    username: sa
-    password:
+    username: root
+    password: root
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-  h2:
-    console:
-      enabled: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
