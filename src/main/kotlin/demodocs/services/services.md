@@ -1,0 +1,1 @@
+The service layer is used to communicate with the database, just like having the application business logic.

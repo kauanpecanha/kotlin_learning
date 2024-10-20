@@ -1,0 +1,1 @@
+In the Spring application, a controller is used to handle the web requests.
